@@ -17,20 +17,23 @@
                         <div class="card-tabs">
                             <ul class="tabs tabs-fixed-width">
                                 <li class="tab"><a href="#{{id}}">Article</a></li>
-                                <li class="tab"><a href="#commentstab{{id}}">Comments</a></li>                                      
+                                <li class="tab"><a href="#c-{{id}}">Comments</a></li>                                      
                             </ul>
                         </div>
                         <div class="card-content grey lighten-4">
                             <div id="{{id}}">{{article_body}}</div>
-                            <div id="commentstab{{id}}">
-                                {{#each notes}}
+                            <div id="c-{{id}}">
+                                {{#each article_notes}}
                                     {{note_body}}<a href="/comment:{{id}}">
-                                    <i class="material-icons">edit</i></a>
+                                    {{!-- <i class="material-icons">edit</i></a> --}}
+                                    <br>
                                 {{/each}}
-                                <a class="waves-effect waves-light btn small modal-trigger" href="#modal1">
-                                    Add Comment
-                                </a>
-                                <div id="modal1" class="modal">
+                                <div class="row">
+                                    <a class="waves-effect waves-light btn small modal-trigger" href="#modal-{{id}}">
+                                        Add Comment
+                                    </a>
+                                </div>
+                                <div id="modal-{{id}}" class="modal">
                                     <div class="modal-content">
                                         <h4>Add a comment</h4>
                                         <form class="" method="POST", action="/comment/{{id}}">
