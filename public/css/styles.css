@@ -1,0 +1,19 @@
+.card .card-image .card-title {
+    color: lightyellow;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    text-shadow: 1px 1px #000000;
+}
+
+.tabs .tab a {
+    font-size: 10px;
+}
+
+.btn, .btn-large {
+    font-size: .7rem;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 1rem;
+
+}

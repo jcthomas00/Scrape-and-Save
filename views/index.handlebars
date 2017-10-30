@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>IGN Articles                                                       </h1>
+    <div class="col s12 m3">
+        <div class="row">
+            {{#each article}}
+                <div class="col s12 m4">
+                    <div class="card medium">
+                        <div class="card-image">
+                            <img src="{{article_image}}">
+                            <span class="card-title">{{article_title}}</span>
+                            <a class="btn-floating halfway-fab waves-effect waves-light red">
+                                <i class="material-icons">
+                                    add
+                                </i>
+                            </a>
+                        </div>
+                        <div class="card-tabs">
+                            <ul class="tabs tabs-fixed-width">
+                                <li class="tab"><a href="#{{id}}">Article</a></li>
+                                <li class="tab"><a href="#commentstab{{id}}">Comments</a></li>                                      
+                            </ul>
+                        </div>
+                        <div class="card-content grey lighten-4">
+                            <div id="{{id}}">{{article_body}}</div>
+                            <div id="commentstab{{id}}">
+                                {{#each notes}}
+                                    {{note_body}}<a href="/comment:{{id}}">
+                                    <i class="material-icons">edit</i></a>
+                                {{/each}}
+                                <a class="waves-effect waves-light btn small modal-trigger" href="#modal1">
+                                    Add Comment
+                                </a>
+                                <div id="modal1" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Add a comment</h4>
+                                        <form class="" method="POST", action="/comment/{{id}}">
+                                            <div class="row">
+                                                <div class="input-field">
+                                                    <i class="material-icons prefix">account_circle</i>
+                                                    <input name="note" id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix">Comment</label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    {{!-- <div class="modal-footer">
+                                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
+                                            Cancel
+                                        </a>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
